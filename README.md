@@ -78,6 +78,7 @@ As an initial test run:
 The output should be RetinaNet's anchors, similar to the following image: 
 ![](media/anchors.png)
 
+# Training, Validation and Inference
 ### 4.0 Training RetinaNet on the BDD dataset:
 Two configuration files are given to train on BDD dataset. <br>
 `retinanet_bdd.yaml` performs training with the loss function from
@@ -125,7 +126,7 @@ Inference does not require any ground truth and could easily be extended to test
 I provide code in `./bayes-od/src/retina_net/offline_eval` to perform evaluation using MUE, AP and PDQ on both the KITTI and BDD datasets.
 
 ### 7.0 Frequently Asked Questions:
-#####Where are the COCO and PASCAL VOC datasets?
+##### Where are the COCO and PASCAL VOC datasets?
 COCO and PASCAL VOC requires special instructions for training, inference and evaluation. I will need to find time to either make the process more mainstream 
 or write a proper Readme before I can release the dataset handler and config files for those. If I get a lot of requests for COCO, I will make sure to hasten 
 the release.
