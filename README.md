@@ -131,7 +131,7 @@ COCO and PASCAL VOC requires special instructions for training, inference and ev
 or write a proper Readme before I can release the dataset handler and config files for those. If I get a lot of requests for COCO, I will make sure to hasten 
 the release.
 
-### 7.0 Acknowledgements:
+# Acknowledgements:
 
 traveller59's [second.pytorch](https://github.com/traveller59/second.pytorch) repository for inspiring the repositorie's structure. <br>
 fizyr's [keras_retinanet](https://github.com/fizyr/keras-retinanet) repository for helping me better understand the details of the coco dataset.
