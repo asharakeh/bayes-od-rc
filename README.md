@@ -133,5 +133,5 @@ the release.
 
 # Acknowledgements:
 
-traveller59's [second.pytorch](https://github.com/traveller59/second.pytorch) repository for inspiring the repositorie's structure. <br>
+traveller59's [second.pytorch](https://github.com/traveller59/second.pytorch) repository for inspiring my repo's structure. <br>
 fizyr's [keras_retinanet](https://github.com/fizyr/keras-retinanet) repository for helping me better understand the details of the coco dataset.
