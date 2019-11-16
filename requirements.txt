@@ -1,0 +1,11 @@
+matplotlib
+numpy
+opencv-python
+pillow
+pypng
+pyyaml
+scipy
+cython
+prettytable
+tensorflow-gpu
+tensorflow-probability

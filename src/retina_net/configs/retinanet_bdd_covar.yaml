@@ -1,0 +1,143 @@
+# Example config
+checkpoint_name: 'retinanet_bdd_covar'
+
+# dataset specific configurations
+dataset_config:
+
+    dataset: 'bdd'  # dataset name
+
+    im_normalization: 'ImageNet'  # ImageNet, Coco, or KITTI
+
+    # Dataset Specific Configs
+    bdd:
+        paths_config:
+            dataset_dir: '~/Datasets/bdd100k'
+            100k_or_10k: '100k'  # Specifies 10k or 100k dataset to be used.
+
+        training_data_config:
+            categories: [
+                'car',
+                'truck',
+                'bus',
+                'person',
+                'rider',
+                'bike',
+                'motor']
+            frac_training_data: 1.0
+
+    kitti:
+        # Used for image resizing while keeping aspect ratio intact
+        resize_shape: [512, 1696]
+
+        paths_config:
+            dataset_dir: '~/Datasets/Kitti/object'
+            data_split_dir: 'training'
+
+        training_data_config:
+            categories: ['car', 'pedestrian', 'cyclist']
+            difficulty: 'hard'
+
+    kitti_tracking:
+        # Used for image resizing while keeping aspect ratio intact
+        resize_shape: [512, 1696]
+
+        paths_config:
+            dataset_dir: '~/Datasets/Kitti/tracking'
+            data_split_dir: 'training'
+            sequence: '0017'  # up to 0020
+
+    # Anchor Generator Config
+    anchor_generator:
+        # Feature pyramid layer. The number signifies how much the initial
+        # image is downsampled at that layer.
+        layers: [3, 4, 5, 6, 7]
+        # Aspect ratios required for anchors per layer. Example: [[1.0, 1.0],
+        # [1.0, 2.0], [2.0, 1.0]]
+        aspect_ratios: [[1.0, 1.0], [1.0, 2.0], [2.0, 1.0]]
+        # Scale required for anchors per layer  [1.0, 1.25, 1.5]
+        scales: [1.0, 1.26, 1.59]
+        min_positive_iou: 0.5
+        max_negative_iou: 0.4
+
+#  Model Configuration
+model_config:
+    output_names: ['classification', 'regression', 'regression_covar']
+
+    # Number of runs required for MC-Dropout epistemic uncertainty estimation
+    mc_dropout_samples: 10
+
+    feature_extractor:
+        name: 'resnet_50'
+        pretrained_initialization: True  # 'image_net' or 'coco'.
+        use_bias: True  # False for coco weights
+
+        l2_norm_rate: 0.0
+
+    feature_decoder:
+        type: 'feature_pyramid_network'
+        l2_norm_rate: 0.0
+
+    header:
+        type: 'fpn_taskwise'
+        dropout_rate: 0.3
+        l2_norm_rate: 1e-6
+        num_layers: 4
+
+    losses:
+        # 'classification' and one of 'regression' or 'regression_var' or # 'classification_focal' or 'classification' and one of 'regression' or 'regression_var' or 'regression_covar_balanced' or 'regression_covar'
+        loss_names: ['classification', 'regression_covar']
+        # 1.0, 1.0 found from KITTI hyperparameter tuning. Official tf
+        # implementation default values are [1.0, 50.0].
+        loss_weights: [5.0, 1.0]
+
+        label_smoothing_epsilon: 0.001  # Specifies label smoothing epsilon
+
+# Training Configuration
+training_config:
+    minibatch_size: 3
+
+    max_epochs: 10
+    checkpoint_interval: 0.1  # Per epoch
+
+    summary_interval: 10
+    max_checkpoints_to_keep: 10000
+
+    # Optimizer Configs
+    initial_learning_rate: 0.001
+    decay_boundaries: [3, 9]
+    decay_factor: 0.1
+
+
+# Validation Configuration
+validation_config:
+    eval_wait_interval: 10
+    run_repeatedly: True
+
+
+# Testing Configuration
+testing_config:
+    test_dataset: 'bdd'
+
+    ckpt_idx: 101  # Checkpoint to evaluate.
+
+    uncertainty_method: 'bayes_od'  # only bayes_od supported in release code
+
+    use_full_covar: True
+
+    nms_config:
+        max_output_size: 100
+        iou_threshold: 0.5
+        soft_nms_sigma: 0.5
+
+    bayes_od_config:
+        ranking_method: 'score'  # 'joint_entropy' or 'score'
+
+        dirichlet_prior:
+            type: 'non_informative'  # 'non_informative' or 'None'
+
+        gaussian_prior:
+            type: 'isotropic'   # 'isotropic' or None.
+
+            isotropic_variance: 100000.0
+
+        fusion_method: 'none' # Only bayesian inference supported in release code

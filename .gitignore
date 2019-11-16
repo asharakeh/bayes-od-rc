@@ -1,0 +1,10 @@
+# Data Folder
+data
+
+# PyCharm
+.idea
+
+# Python
+*.pyc
+__pycache__
+
