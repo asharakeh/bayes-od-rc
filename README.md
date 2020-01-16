@@ -48,16 +48,12 @@ are extracted.
     └── KITTI_DATASET_ROOT
         ├── object
             ├── training    <-- 7481 train data
-            |   ├── image_2 <-- for visualization
+            |   ├── image_2
             |   ├── calib
-            |   ├── label_2
-            |   ├── velodyne
-            |   └── velodyne_reduced <-- empty directory
+            |   └── label_2
             └── testing     <-- 7580 test data
-                   ├── image_2 <-- for visualization
-                   ├── calib
-                   ├── velodyne
-                   └── velodyne_reduced <-- empty directory
+                   ├── image_2
+                   └── calib
  
 Make sure that the .yaml config files in `./bayes-od-rc/srec/retina_net/configs` point to the correct dataset folders.
 
