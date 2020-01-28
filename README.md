@@ -78,7 +78,7 @@ The output should be RetinaNet's anchors, similar to the following image:
 ### 4.0 Training RetinaNet on the BDD dataset:
 Two configuration files are given to train on BDD dataset. <br>
 `retinanet_bdd.yaml` performs training with the loss function from
-[Kendal et. al.](https://papers.nips.cc/paper/7141-what-uncertainties-do-we-need-in-bayesian-deep-learning-for-computer-vision)
+[Kendall et. al.](https://papers.nips.cc/paper/7141-what-uncertainties-do-we-need-in-bayesian-deep-learning-for-computer-vision)
 
 `retinanet_bdd_covar.yaml` performs training with the loss function from our paper and allows the estimation of the full covariance matrix.
 
