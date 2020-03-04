@@ -7,7 +7,11 @@ Tensorflow 2.0 Code to reproduce results of the paper: [BayesOD: A Bayesian Appr
 Tested on python 3.6, tensorflow 2.0, and ubuntu 18.04 ONLY.
 
 # News:
-2019-11-16: BayesOD V1.0 intial released.
+2020-03-04: I will be deprecating this repository in the months to come in favor of a pytorch implementation. The new implementation will include
+much more features and network architectures and will provide COCO and PASCAL dataset implementations.
+
+2020-03-04: Fixed deprecated function in tf-probability.
+2019-11-16: BayesOD V1.0 initial released.
 
 # Install:
 I recommend to use a virtual environment to install the requirements. In the future, I might provide a Docker container 

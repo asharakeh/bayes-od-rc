@@ -107,7 +107,7 @@ class RetinaNetModel(keras.Model):
                         mc_dropout_enabled) for pyramid_layer in
                     decoder_pyramid_layers]
                 covar_out = tf.concat(covar_out_list, axis=1)
-                covar_out = tfp.distributions.fill_triangular(covar_out)
+                covar_out = tfp.math.fill_triangular(covar_out)
                 self.prediction_dict.update(
                     {constants.ANCHORS_COVAR_PREDICTIONS_KEY: covar_out})
         else:
@@ -141,7 +141,7 @@ class RetinaNetModel(keras.Model):
                         pyramid_layer,
                         mc_dropout_enabled)for pyramid_layer in decoder_pyramid_layers]
                 covar_out = tf.concat(covar_out_list, axis=1)
-                covar_out = tfp.distributions.fill_triangular(covar_out)
+                covar_out = tfp.math.fill_triangular(covar_out)
 
                 self.prediction_dict.update(
                     {constants.ANCHORS_COVAR_PREDICTIONS_KEY: covar_out})

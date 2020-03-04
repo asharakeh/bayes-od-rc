@@ -87,7 +87,7 @@ model_config:
     losses:
         # 'classification' and one of 'regression' or 'regression_var' or # 'classification_focal' or 'classification' and one of 'regression' or 'regression_var' or 'regression_covar_balanced' or 'regression_covar'
         loss_names: ['classification', 'regression_var']
-        # 1.0, 1.0 found from KITTI hyperparameter tuning. Official tf
+        # 5.0, 1.0 found from KITTI hyperparameter tuning. Official tf
         # implementation default values are [1.0, 50.0].
         loss_weights: [5.0, 1.0]
 
