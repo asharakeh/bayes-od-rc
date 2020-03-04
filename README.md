@@ -11,6 +11,7 @@ Tested on python 3.6, tensorflow 2.0, and ubuntu 18.04 ONLY.
 much more features and network architectures and will provide COCO and PASCAL dataset implementations.
 
 2020-03-04: Fixed deprecated function in tf-probability.
+
 2019-11-16: BayesOD V1.0 initial released.
 
 # Install:
