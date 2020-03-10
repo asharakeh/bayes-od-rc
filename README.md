@@ -126,7 +126,16 @@ Inference does not require any ground truth and could easily be extended to test
 ### 6.0 Evaluation:
 I provide code in `./bayes-od/src/retina_net/offline_eval` to perform evaluation using MUE, AP and PDQ on both the KITTI and BDD datasets.
 
-### 7.0 Frequently Asked Questions:
+### 7.0 Trained Models:
+Trained models can be found at: 
+
+BDD checkpoint: https://drive.google.com/file/d/1hlz_q6DYjHbFLTwJyCqFS6L7qg7Lj6Sy/view?usp=sharing
+
+COCO checkpoint: https://drive.google.com/file/d/1gUcJrCXfPa9kwYRV1lmjzvlpMYV3uPkG/view?usp=sharing
+
+I recommend running training as described above to automatically create the folder sturcture. You can then download the checkpoints and just copy them into the "checkpoints" folder.
+
+### 8.0 Frequently Asked Questions:
 ##### Where are the COCO and PASCAL VOC datasets?
 COCO and PASCAL VOC requires special instructions for training, inference and evaluation. I will need to find time to either make the process more mainstream 
 or write a proper Readme before I can release the dataset handler and config files for those. If I get a lot of requests for COCO, I will make sure to hasten 
