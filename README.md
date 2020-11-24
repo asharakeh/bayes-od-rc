@@ -7,6 +7,8 @@ Tensorflow 2.0 Code to reproduce results of the paper: [BayesOD: A Bayesian Appr
 Tested on python 3.6, tensorflow 2.0, and ubuntu 18.04 ONLY.
 
 # News:
+2020-11-20: BayesOD pytorch code available [here](https://github.com/asharakeh/pod_compare)
+
 2020-03-04: I will be deprecating this repository in the months to come in favor of a pytorch implementation. The new implementation will include
 much more features and network architectures and will provide COCO and PASCAL dataset implementations.
 
